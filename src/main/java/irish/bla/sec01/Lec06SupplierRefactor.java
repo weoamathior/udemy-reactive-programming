@@ -2,11 +2,16 @@ package irish.bla.sec01;
 
 import irish.bla.util.Util;
 import reactor.core.publisher.Mono;
+import reactor.core.scheduler.Schedulers;
 
 public class Lec06SupplierRefactor {
     public static void main(String[] args) {
         getName(1);
-        getName(2).subscribe(Util.onNext());
+        String name = getName(2)
+                .subscribeOn(Schedulers.boundedElastic())
+                .block();
+        System.out.println(name);
+//                .subscribe(Util.onNext());
         getName(3);
 
     }
