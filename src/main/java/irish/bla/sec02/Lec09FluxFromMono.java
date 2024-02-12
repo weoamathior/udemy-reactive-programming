@@ -11,5 +11,11 @@ public class Lec09FluxFromMono {
         Flux<String> flux = Flux.from(mono);
 
         flux.subscribe(Util.onNext());
+
+        // flux to mono
+        Flux.range(1,10)
+                .filter(i -> i > 3)
+                .next() // very first item (given prior filters)
+                .subscribe(Util.onNext());
     }
 }
