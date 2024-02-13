@@ -1,14 +1,13 @@
 package irish.bla.util;
 
-import lombok.NoArgsConstructor;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-@NoArgsConstructor
 public class DefaultSubscriber implements Subscriber<Object> {
     private Subscription subscription;
     private String name = "";
 
     public DefaultSubscriber(String n) {this.name = n;}
+    public DefaultSubscriber(){}
 
     @Override
     public void onSubscribe(Subscription s) {
