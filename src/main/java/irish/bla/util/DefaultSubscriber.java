@@ -4,7 +4,7 @@ import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 public class DefaultSubscriber implements Subscriber<Object> {
     private Subscription subscription;
-    private String name = "";
+    private String name = DefaultSubscriber.class.getSimpleName();
 
     public DefaultSubscriber(String n) {this.name = n;}
     public DefaultSubscriber(){}
