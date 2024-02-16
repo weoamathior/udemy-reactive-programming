@@ -13,6 +13,6 @@ public class Person {
     private int age;
 
     public static Person random() {
-        return new Person(Util.faker().name().fullName(), Util.faker().random().nextInt(1,100));
+        return new Person(Util.faker().name().fullName(), Util.faker().random().nextInt(1,30));
     }
 }
