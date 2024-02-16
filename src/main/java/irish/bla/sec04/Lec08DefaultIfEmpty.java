@@ -9,6 +9,7 @@ public class Lec08DefaultIfEmpty {
     public static void main(String[] args) {
        getOrderNumbers()
                .filter(i -> i> 10) // nothing will match
+               // provide some constant value
                .defaultIfEmpty(-100)
                .subscribe(DefaultSubscriber.newInstance());
 
