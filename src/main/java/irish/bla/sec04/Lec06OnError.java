@@ -5,7 +5,7 @@ import irish.bla.util.Util;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-public class Lec07OnError {
+public class Lec06OnError {
 
     public static void main(String[] args) {
 
@@ -16,7 +16,7 @@ public class Lec07OnError {
 //                .onErrorResume(err -> fallback())
                 // like a dlq - provides the error and the problematic object
                 .onErrorContinue((err,obj) -> {
-                    
+
                 })
                 .subscribe(DefaultSubscriber.newInstance());
 
