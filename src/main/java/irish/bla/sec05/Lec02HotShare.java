@@ -7,7 +7,7 @@ import reactor.core.publisher.Flux;
 import java.time.Duration;
 import java.util.stream.Stream;
 
-public class Lec02HotPublisher {
+public class Lec02HotShare {
     public static void main(String[] args) {
 
         Flux<String> flux = Flux.fromStream(() -> getMovie())
