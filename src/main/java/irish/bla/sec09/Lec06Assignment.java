@@ -23,7 +23,8 @@ public class Lec06Assignment {
 
         OrderService.orderStream()
 //                .log()
-                .filter(p -> keys.contains(p))
+                .filter(p -> keys.contains(p.getCategory()))
+//                .log()
                 .groupBy(PurchaseOrder::getCategory) // creates flux with 2 keys
                 .flatMap(gf -> map.get(gf.key()).apply(gf))
                 .subscribe(DefaultSubscriber.newInstance());
