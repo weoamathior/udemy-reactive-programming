@@ -19,6 +19,12 @@ public class Lec01Buffer {
 
     private static Flux<String> eventStream() {
         return Flux.interval(Duration.ofMillis(300))
+                // .take(3) overrides the buffer(5) and returns only the first three events
+//                .take(3)
+        //DefaultSubscriber received: [event-0, event-1, event-2]
+        //DefaultSubscriber completed
+//
+        //
                 .map(i -> "event-" + i);
     }
 }
