@@ -13,7 +13,8 @@ public class Lec04Window {
     public static void main(String[] args) {
 
         eventStream()
-                .window(5)
+                .window(Duration.ofSeconds(2))
+//                .window(5)
                 .flatMap(stringFlux -> saveEvents(stringFlux))
                 .subscribe(DefaultSubscriber.newInstance());
         Util.sleepSeconds(60);
