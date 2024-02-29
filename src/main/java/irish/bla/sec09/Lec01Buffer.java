@@ -11,20 +11,17 @@ public class Lec01Buffer {
 
         eventStream()
                 // collects the item and provides a Flux<List<String>>
-                .buffer(5)
+
+                // bufferTimaeout - either maxSize or duration, whichever comes first
+                .bufferTimeout(5, Duration.ofSeconds(2))
+//                .buffer(Duration.ofSeconds(2))
                 .subscribe(DefaultSubscriber.newInstance());
         Util.sleepSeconds(60);
 
     }
 
     private static Flux<String> eventStream() {
-        return Flux.interval(Duration.ofMillis(300))
-                // .take(3) overrides the buffer(5) and returns only the first three events
-//                .take(3)
-        //DefaultSubscriber received: [event-0, event-1, event-2]
-        //DefaultSubscriber completed
-//
-        //
+        return Flux.interval(Duration.ofMillis(1000))
                 .map(i -> "event-" + i);
     }
 }
