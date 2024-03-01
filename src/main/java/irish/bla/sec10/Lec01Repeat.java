@@ -9,7 +9,9 @@ public class Lec01Repeat {
     private static AtomicInteger atomicInteger = new AtomicInteger(1);
     public static void main(String[] args) {
         getInts()
-                .repeat(2)
+//                .repeat(2)
+//                .repeat() // infinitely re-subscribes
+                .repeat(() -> atomicInteger.get() < 100) // test some condition
                 .subscribe(DefaultSubscriber.newInstance());
 
 
